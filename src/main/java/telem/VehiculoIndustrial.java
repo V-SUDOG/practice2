@@ -1,0 +1,46 @@
+package telem;
+
+public class VehiculoIndustrial extends Vehiculo {
+
+    private int capacidadCarga;
+    private int numeroEjes;
+
+    public VehiculoIndustrial(String matricula, Categoria categoria, int annio,
+        int capacidadCarga, int numeroEjes
+    ) {
+        super(matricula, categoria, annio);
+        this.capacidadCarga = capacidadCarga;
+        this.numeroEjes = numeroEjes;
+    }
+
+    public int getCapacidadCarga() {
+        return capacidadCarga;
+    }
+
+    public int getNumeroEjes() {
+        return numeroEjes;
+    }
+
+    @Override
+    public String getTipo() {
+        return "VehiculoIndustrial";
+    }
+
+    // Valores NO indicados en el PDF (solo da los de Turismo): supuesto a confirmar.
+    @Override
+    public int getPrecioBase() {
+        int precioBase = 0;
+        switch (getCategoria()) {
+            case NORMAL:
+                precioBase = 70;
+                break;
+            case ESPECIAL:
+                precioBase = 100;
+                break;
+            case SUPERIOR:
+                precioBase = 120;
+                break;
+        }
+        return precioBase;
+    }
+}
