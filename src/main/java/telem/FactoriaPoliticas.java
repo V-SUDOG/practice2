@@ -77,6 +77,7 @@ public final class FactoriaPoliticas {
         }
 
         // A partir de una denominación (por ejemplo, escrita por el usuario)
+        //Crear una política a partir de su nombre (ignorando mayúsculas/minúsculas y espacios)
         ICalculadorPrecio porNombre = FactoriaPoliticas.crearPolitica("clientefrecuente");
         System.out.println("Por nombre \"clientefrecuente\": " + porNombre.getClass().getSimpleName());
 

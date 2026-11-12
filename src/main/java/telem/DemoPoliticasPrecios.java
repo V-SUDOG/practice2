@@ -10,16 +10,19 @@ import java.time.LocalDate;
 public class DemoPoliticasPrecios {
 
     public static void main(String[] args) {
+        //Prepara las políticas y los datos de prueba
         ICalculadorPrecio[] politicas = {
             new CalculadorPrecioNormal(),
             new CalculadorPrecioTemporadaAlta(),
             new CalculadorPrecioOferton(),
             new CalculadorPrecioClienteFrecuente()
         };
+        //Guarda las duraciones y categorías a probar, y la fecha de inicio del alquiler
         int[] duraciones = {1, 3, 4, 7, 8};
-        Categoria[] categorias = {Categoria.NORMAL, Categoria.ESPECIAL};
-        LocalDate inicio = LocalDate.of(2026, 11, 9);
+        Categoria[] categorias = {Categoria.NORMAL, Categoria.ESPECIAL, Categoria.SUPERIOR};
+        LocalDate inicio = LocalDate.of(2026, 11, 5);
 
+        // Muestra los precios de alquiler para cada política, duración y categoría
         for (Categoria categoria : categorias) {
             Vehiculo turismo = new Turismo("ABC123", categoria, 2020, 5, 400.0);
             System.out.println("Turismo " + categoria + " (precio base diario: " + turismo.getPrecioBase() + ")");
@@ -28,6 +31,7 @@ public class DemoPoliticasPrecios {
                 System.out.printf("%7d", dias);
             }
             System.out.println();
+            // Calcula y muestra el precio de alquiler para cada política y duración
             for (ICalculadorPrecio politica : politicas) {
                 System.out.printf("%-34s", politica.getClass().getSimpleName());
                 for (int dias : duraciones) {

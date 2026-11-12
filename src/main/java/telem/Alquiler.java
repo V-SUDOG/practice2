@@ -56,7 +56,7 @@ public class Alquiler {
         }
         return calculadorPrecio;
     }
-
+//Métodos de acceso a los atributos de la clase Alquiler
     public static Alquiler[] obtenerAlquileres() {
         return alquileres; 
     }
@@ -85,16 +85,16 @@ public class Alquiler {
     public LocalDate getFechaFin() {
         return fechaFin;
     }
-
+//Cálculo del precio del alquiler usando la estrategia de cálculo de precios
     public int calcularPrecioAlquiler(LocalDate fechaInicio, LocalDate fechaFin) {
         return calculadorPrecio.calcularPrecioAlquiler(fechaInicio, fechaFin, vehiculo);
     }
-
+//Tramsforma el objeto Alquiler a un String en formato JSON usando la librería org.json.JSONObject
     @Override 
     public String toString() {
         return new JSONObject(this).toString();
     }
-
+//Objeto de prueba para la clase Alquiler
     public static void main(String[] args) {
         Vehiculo vehiculo1 = new Turismo("ABC123", Categoria.NORMAL, 2020, 5, 400.0);
         Cliente cliente1 = new Cliente("Juan Pérez", "123456789");
